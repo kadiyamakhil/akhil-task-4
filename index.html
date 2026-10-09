@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Thiranex Task 4 - Real-time weather dashboard using a REST API">
+  <title>WeatherFlow | Thiranex Task 4</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <section class="weather-app" aria-labelledby="page-title">
+      <header class="header">
+        <div>
+          <p class="eyebrow">THIRANEX • TASK 4</p>
+          <h1 id="page-title">WeatherFlow</h1>
+          <p>Real-time weather dashboard using asynchronous JavaScript and REST APIs.</p>
+        </div>
+        <button id="unit-toggle" class="unit-btn" type="button" aria-label="Switch temperature unit">
+          °C
+        </button>
+      </header>
+
+      <form id="search-form" class="search" role="search">
+        <label class="sr-only" for="city-input">Search city</label>
+        <input id="city-input" type="search" placeholder="Enter city name, e.g. Hyderabad"
+               autocomplete="off" required>
+        <button type="submit">Search</button>
+      </form>
+
+      <div id="status" class="status" aria-live="polite">Search for a city to load weather.</div>
+
+      <section id="weather-content" class="hidden">
+        <div class="location-row">
+          <div>
+            <p class="label">CURRENT WEATHER</p>
+            <h2 id="location-name">—</h2>
+            <p id="location-meta">—</p>
+          </div>
+          <div id="weather-icon" class="weather-icon" aria-hidden="true">☀️</div>
+        </div>
+
+        <div class="current-card">
+          <div>
+            <span class="label">Temperature</span>
+            <strong id="temperature">—</strong>
+            <span id="condition">—</span>
+          </div>
+          <div class="metrics">
+            <div><span>Humidity</span><strong id="humidity">—</strong></div>
+            <div><span>Wind</span><strong id="wind">—</strong></div>
+            <div><span>Feels like</span><strong id="feels-like">—</strong></div>
+          </div>
+        </div>
+
+        <div class="section-title">
+          <h3>7-Day Forecast</h3>
+        </div>
+        <div id="forecast" class="forecast"></div>
+
+        <p class="source">
+          Weather data: Open-Meteo. Forecast API provides JSON weather data by coordinates.
+          <a href="https://open-meteo.com/en/docs" target="_blank" rel="noopener">API documentation</a>
+        </p>
+      </section>
+    </section>
+  </main>
+
+  <script src="weather.js"></script>
+</body>
+</html>
